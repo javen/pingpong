@@ -1,0 +1,19 @@
+{
+  "name": "pingpong",
+  "description": "A modular backbone environment",
+  "version": "0.0.0",
+  "homepage": "http://localhost:1337/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:javen/pingpong.git"
+  },
+  "main": "build/server",
+  "engines": {
+    "node": "~0.12.7"
+  },
+  "dependencies": {
+    "express": "~2.5.8"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
