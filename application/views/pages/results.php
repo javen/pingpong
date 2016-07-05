@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>最终赛果</title>
+    <title>最终赛果 Final Result</title>
     <!-- Bootstrap Core CSS -->
     <link href="bnbs/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -15,16 +15,16 @@
 
     <div class="table-responsive">
         <table class="table table-hover">
-            <thead class="bg-info">
+            <thead>
 			    <tr>
 			        <th>#</th>
-			        <th>第一组</th>
-			        <th>第二组</th>
-			        <th>第三组</th>
-			        <th>第四组</th>
-			        <th>第五组</th>
-			        <th>开始时间</th>
-			        <th>结束时间</th>
+			        <th>第一组 A GROUP</th>
+			        <th>第二组 B GROUP</th>
+			        <th>第三组 C GROUP</th>
+			        <th>第四组 D GROUP</th>
+			        <th>第五组 E GROUP</th>
+			        <th>开始时间 START</th>
+			        <th>结束时间 E-N-D</th>
 			    </tr>
 			</thead>
 			<tbody id="resultlist">
