@@ -97,9 +97,57 @@ function list_results() {
     results.fetch();
 }
 
+//加载并渲染所有的货源到表格中-实现2-Backgrid
+function list_results_2() {
+	var columns = [{
+		name: "id",
+		label: "ID",
+		editable: false,
+		cell: Backgrid.IntegerCell.extend({
+	        orderSeparator: ''
+	    })
+	}, {
+		name: "a_group",
+		label: "A Group",
+		cell: "string"
+	}, {
+		name: "b_group",
+		label: "B Group",
+		cell: "string"
+	}, {
+		name: "c_group",
+		label: "C Group",
+		cell: "string"
+	}, {
+		name: "d_group",
+		label: "D Group",
+		cell: "string"
+	}, {
+		name: "e_group",
+		label: "E Group",
+		cell: "string"
+	}, {
+		name: "start_time",
+		label: "Start",
+		cell: "date"
+	}, {
+		name: "end_time",
+		label: "End",
+		cell: "date"
+	}];
+	results = new Results();
+    resultlist = new Backgrid.Grid({
+    	columns: columns,
+        collection : results
+    });
+
+    $("#resultlist").append(resultlist.render().el);
+    results.fetch({reset: true});
+}
+
 $(function () {
 	$(document).ready(function(){
-        list_results();
+        list_results_2();
     })
 
     // $('#start').click(function(){

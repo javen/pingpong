@@ -247,6 +247,12 @@
     <!-- Backbone JavaScript -->
     <script src="bnbs/js/backbone-min.js"></script>
 
+    <!-- Backgrid JavaScript -->
+    <script src="bnbs/js/backgrid.js"></script>
+
+    <!-- Backbone Paginator JavaScript -->
+    <script src="bnbs/js/backbone.paginator.min.js"></script>
+
     <!-- Results JS -->
     <script src="bnbs/js/result.js"></script>
 </div>
