@@ -73,7 +73,7 @@ class Api extends REST_Controller {
             // Invalid id, set the response and exit.
             $this->response([
                 'status' => false,
-                'message'=> '出错了，货源id必须是大于0的整数！'
+                'message'=> '出错了，结果id必须是大于0的整数！'
             ], REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
 
@@ -99,7 +99,7 @@ class Api extends REST_Controller {
         {
             $this->set_response([
                 'status' => FALSE,
-                'message' => '对不起，货源不存在或已被删除！'
+                'message' => '对不起，结果不存在或已被删除！'
             ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
     }
@@ -226,7 +226,7 @@ class Api extends REST_Controller {
         
         $message = [
             'id' => $id,
-            'message' => '成功删除货物!'
+            'message' => '成功删除记录!'
         ];
         $this->set_response($message, REST_Controller::HTTP_OK); 
     }

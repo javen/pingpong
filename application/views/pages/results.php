@@ -8,6 +8,7 @@
     <title>最终赛果 Final Result</title>
     <!-- Bootstrap Core CSS -->
     <link href="bnbs/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bnbs/css/backgrid.css" rel="stylesheet">
 </head>
 
 <body>

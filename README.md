@@ -5,12 +5,11 @@ Pingping Pongpong: Practice is addictive!
 1. PHP 5.4 or greater
 2. CodeIgniter 3.2
 3. Bootstrap 3
-4. Backbone 
+4. Backbone
 
 # Deployment
 1. MySQL 5.5/5.6
-2. Apache2
-3. NodeJS any (for view showing)
+2. Apache2   
 
 # Usage
 1. CRUD via browser: http:/ip.addr.of.host/pingpong
