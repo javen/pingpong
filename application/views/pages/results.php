@@ -15,8 +15,8 @@
 <div class="container">
 
     <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
+        <table id="resultlist" class="table table-hover">
+            <!--thead>
 			    <tr>
 			        <th>#</th>
 			        <th>第一组 A GROUP</th>
@@ -31,7 +31,7 @@
 			<tbody id="resultlist">
 			    <tr>
 			    </tr>
-			</tbody>
+			</tbody-->
         </table>
     </div>
 
