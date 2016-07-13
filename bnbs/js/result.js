@@ -21,6 +21,15 @@ var Results = Backbone.Collection.extend({
     }
 });
 
+var PageableResults = Backbone.PageableCollection.extend({
+	model: Result
+	, url: 'api/results',
+	state: {
+		pageSize: 20
+	},
+	mode: "client"
+});
+
 /**
  * 添加表头模板
  */
@@ -74,6 +83,8 @@ var ResultsView = Backbone.View.extend({
 var result = null;
 var results = null;
 var resultlist = null;
+var pageableresults = null;
+var pageableresultlist = null;
 
 //模态框垂直居中实现
 function center_modal(my_modal) {
@@ -97,57 +108,85 @@ function list_results() {
     results.fetch();
 }
 
+var columns = [{
+	name: "id",
+	label: "ID",
+	editable: false,
+	sortable: false,
+	cell: Backgrid.IntegerCell.extend({
+        orderSeparator: ''
+    })
+}, {
+	name: "a_group",
+	label: "A Group",
+	cell: "string"
+}, {
+	name: "b_group",
+	label: "B Group",
+	cell: "string"
+}, {
+	name: "c_group",
+	label: "C Group",
+	cell: "string"
+}, {
+	name: "d_group",
+	label: "D Group",
+	cell: "string"
+}, {
+	name: "e_group",
+	label: "E Group",
+	cell: "string"
+}, {
+	name: "start_time",
+	label: "Start",
+	cell: "date"
+}, {
+	name: "end_time",
+	label: "End",
+	cell: "date",
+	sortable: false
+}];
+
 //加载并渲染所有的货源到表格中-实现2-Backgrid
 function list_results_2() {
-	var columns = [{
-		name: "id",
-		label: "ID",
-		editable: false,
-		cell: Backgrid.IntegerCell.extend({
-	        orderSeparator: ''
-	    })
-	}, {
-		name: "a_group",
-		label: "A Group",
-		cell: "string"
-	}, {
-		name: "b_group",
-		label: "B Group",
-		cell: "string"
-	}, {
-		name: "c_group",
-		label: "C Group",
-		cell: "string"
-	}, {
-		name: "d_group",
-		label: "D Group",
-		cell: "string"
-	}, {
-		name: "e_group",
-		label: "E Group",
-		cell: "string"
-	}, {
-		name: "start_time",
-		label: "Start",
-		cell: "date"
-	}, {
-		name: "end_time",
-		label: "End",
-		cell: "date"
-	}];
 	results = new Results();
     resultlist = new Backgrid.Grid({
     	columns: columns,
-        collection : results
+        collection: results
     });
 
     $("#resultlist").append(resultlist.render().el);
     results.fetch({reset: true});
+
+    pageableresults.fetch({reset: true});
+}
+
+//加载并渲染所有的货源到表格中-实现3-Backgrid-分页
+function list_results_3() {
+    pageableresults = new PageableResults();
+    pageableresultlist = new Backgrid.Grid({
+    	// columns: [{
+    	// 	name: "",
+    	// 	cell: "select-row",
+    	// 	headerCell: "select-all"
+    	// }].concat(columns),
+    	columns: columns,
+    	collection: pageableresults
+    });
+
+    $("#resultlist").append(pageableresultlist.render().el);
+	
+	var paginator = new Backgrid.Extension.Paginator({
+	    collection: pageableresults
+	});
+	$("#resultlist").after(paginator.render().el);
+
+    pageableresults.fetch({reset: true});
 }
 
 $(function () {
 	$(document).ready(function(){
-        list_results_2();
+        list_results_3();
     })
 
     // $('#start').click(function(){
@@ -155,7 +194,8 @@ $(function () {
     // })
 
     $('#refresh').click(function(){
-        results.fetch({ reset : true });
+        // results.fetch({ reset : true });
+        pageableresults.fetch({ reset : true });
     })
     
     $('#new').click(function(){
