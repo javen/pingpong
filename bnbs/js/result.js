@@ -25,7 +25,7 @@ var PageableResults = Backbone.PageableCollection.extend({
 	model: Result
 	, url: 'api/results',
 	state: {
-		pageSize: 20
+		pageSize: 14
 	},
 	mode: "client"
 });
@@ -119,30 +119,37 @@ var columns = [{
 }, {
 	name: "a_group",
 	label: "A Group",
+	editable: false,
 	cell: "string"
 }, {
 	name: "b_group",
 	label: "B Group",
+	editable: false,
 	cell: "string"
 }, {
 	name: "c_group",
 	label: "C Group",
+	editable: false,
 	cell: "string"
 }, {
 	name: "d_group",
 	label: "D Group",
+	editable: false,
 	cell: "string"
 }, {
 	name: "e_group",
 	label: "E Group",
+	editable: false,
 	cell: "string"
 }, {
 	name: "start_time",
 	label: "Start",
+	editable: false,
 	cell: "date"
 }, {
 	name: "end_time",
 	label: "End",
+	editable: false,
 	cell: "date",
 	sortable: false
 }];
@@ -152,7 +159,8 @@ function list_results_2() {
 	results = new Results();
     resultlist = new Backgrid.Grid({
     	columns: columns,
-        collection: results
+        collection: results,
+        className: "backgrid table table-hover"
     });
 
     $("#resultlist").append(resultlist.render().el);
@@ -171,7 +179,8 @@ function list_results_3() {
     	// 	headerCell: "select-all"
     	// }].concat(columns),
     	columns: columns,
-    	collection: pageableresults
+    	collection: pageableresults,
+    	className: "backgrid table table-hover"
     });
 
     $("#resultlist").append(pageableresultlist.render().el);
