@@ -31,7 +31,7 @@ var PageableResults = Backbone.PageableCollection.extend({
 });
 
 /**
- * 添加表头模板
+ * added table header
  */
 var ResultView = Backbone.View.extend({
 	tagName: 'tr',
@@ -86,7 +86,7 @@ var resultlist = null;
 var pageableresults = null;
 var pageableresultlist = null;
 
-//模态框垂直居中实现
+//modal centralize
 function center_modal(my_modal) {
 	$(my_modal).on('shown.bs.modal', function(){
 		var $this = $(this);
@@ -96,7 +96,7 @@ function center_modal(my_modal) {
 	});
 }
 
-//加载并渲染所有的货源到表格中
+//load and rend results to table
 function list_results() {
 	results = new Results();
     resultlist = new ResultsView({
@@ -147,7 +147,7 @@ var columns = [{
 	sortable: false
 }];
 
-//加载并渲染所有的货源到表格中-实现2-Backgrid
+//load and rend results to table-impl2-Backgrid
 function list_results_2() {
 	results = new Results();
     resultlist = new Backgrid.Grid({
@@ -161,7 +161,7 @@ function list_results_2() {
     pageableresults.fetch({reset: true});
 }
 
-//加载并渲染所有的货源到表格中-实现3-Backgrid-分页
+//load and rend results to table-impl3-Backgrid-paginator
 function list_results_3() {
     pageableresults = new PageableResults();
     pageableresultlist = new Backgrid.Grid({
@@ -180,6 +180,14 @@ function list_results_3() {
 	    collection: pageableresults
 	});
 	$("#resultlist").after(paginator.render().el);
+
+	var filter = new Backgrid.Extension.ClientSideFilter({
+  		collection: pageableresults,
+  		placeholder: "Occurrence in the 1st group",
+  		fields: ['a_group']
+	});
+	$("#resultlist").before(filter.render().el);
+	$(filter.el).css({float: "right", margin: "2px"});
 
     pageableresults.fetch({reset: true});
 }

@@ -11,26 +11,11 @@
     <link href="bnbs/css/backgrid.css" rel="stylesheet">
     <link href="bnbs/css/backgrid-select-all.min.css" rel="stylesheet">
     <link href="bnbs/css/backgrid-paginator.min.css" rel="stylesheet">
+    <link href="bnbs/css/backgrid-filter.min.css" rel="stylesheet">
 </head>
 
 <body>
 <div class="container">
-	<div class="text-center">
-        <div class="btn-toolbar pull-center" style="margin-left: 480px; margin-top: 10px;">
-            <!-- <button id="start"   type="button" class="btn btn-primary">查询</button> -->
-            <button id="refresh" type="button" class="glyphicon glyphicon-refresh btn btn-success"></button>
-            <button id="new" 	 type="button" class="glyphicon glyphicon-plus btn btn-info" data-toggle="modal" data-target="#newResult"></button>
-    	    <div class="input-group col-lg-3" style="padding-left: 5px">
-    	    	<span class="input-group-btn">
-    	    		<button id="delete" class="glyphicon glyphicon-minus btn btn-warning" type="button" data-toggle="modal"></button>
-    	    	</span>
-    	    	<input id="id" type="text" class="glyphicon form-control" placeholder="#"></input>
-    	    	<span class="input-group-btn">
-    	    		<button id="edit" class="glyphicon glyphicon-edit btn btn-primary" type="button" data-toggle="modal"></button>
-    	    	</span>
-    	    </div>
-     	</div>
-    </div>
 
     <div class="table-responsive">
         <table id="resultlist" class="table table-hover">
@@ -52,6 +37,20 @@
 			</tbody-->
         </table>
     </div>
+
+    <div class="btn-toolbar">
+        <button id="refresh" type="button" class="glyphicon glyphicon-refresh btn btn-success"></button>
+        <button id="new" 	 type="button" class="glyphicon glyphicon-plus btn btn-info" data-toggle="modal" data-target="#newResult"></button>
+	    <div class="input-group col-lg-3" style="padding-left: 5px">
+	    	<span class="input-group-btn">
+	    		<button id="delete" class="glyphicon glyphicon-minus btn btn-warning" type="button" data-toggle="modal"></button>
+	    	</span>
+	    	<input id="id" type="text" class="glyphicon form-control" placeholder="#"></input>
+	    	<span class="input-group-btn">
+	    		<button id="edit" class="glyphicon glyphicon-edit btn btn-primary" type="button" data-toggle="modal"></button>
+	    	</span>
+	    </div>
+ 	</div>
 
     <!-- Modal -->
 	<div class="modal fade" id="newResult" tabindex="-1" role="dialog" aria-labelledby="newResultLabel" aria-hidden="true">
@@ -255,6 +254,9 @@
 
     <!-- Backgrid JavaScript -->
     <script src="bnbs/js/backgrid-paginator.min.js"></script>
+
+    <!-- Backgrid JavaScript -->
+    <script src="bnbs/js/backgrid-filter.min.js"></script>
 
     <!-- Backgrid JavaScript -->
     <script src="bnbs/js/backgrid-select-all.min.js"></script>
