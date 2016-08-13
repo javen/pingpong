@@ -30,7 +30,8 @@
 .backgrid td {
   display: none;
   height: 20px;
-  max-width: 250px;
+  /*max-width: 250px;*/
+  max-width: 65px;
   padding: 4px 5px;
   overflow: hidden;
   line-height: 20px;
@@ -186,7 +187,8 @@
 .backgrid .number-cell.editor input[type=text],
 .backgrid .integer-cell.editor input[type=text],
 .backgrid .percent-cell.editor input[type=text] {
-  text-align: right;
+  /*text-align: right;*/
+  text-align: center;
 }
 
 .backgrid .boolean-cell,
